@@ -1,0 +1,75 @@
+// @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+body {
+  padding-top: 70px;
+  padding-bottom: 100px;
+}
+.products {
+  .price {
+    display: block;
+    font-weight: bold;
+  }
+  .img{
+    position: relative;
+    .name {
+      position: absolute;
+      bottom:0;
+      left:0;
+      width: 100%;
+      height: 40px;
+      line-height: 30px;
+      padding: 5px;
+      background: rgba(255, 255, 255, 0.8);
+      color: #000;
+    }
+    img{
+      border-radius: 10px;
+    }
+  }
+  .price {
+    position: absolute;
+    top:0;
+    right:0;
+    width: 100px;
+    border-radius: 10px;
+    border-top-left-radius: 0;
+    text-align: center;
+    height: 40px;
+    line-height: 30px;
+    padding: 5px;
+    background: rgba(255, 255, 255, 0.8);
+    color: #000;
+  }
+
+  .btn {
+    display: none;
+    position: absolute;
+    top:50%;
+    left:50%;
+    margin-top: -20px;
+    margin-left: -40px;
+    box-shadow: 0 0 10px #333;
+  }
+  .product {
+    margin-bottom: 20px;
+    &:hover .btn {
+      display: block;
+    }
+  }
+}
+img {
+  max-width: 100%;
+}
+.navbar {
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+  line-height: 60px;
+  margin-top: 50px;
+}
+

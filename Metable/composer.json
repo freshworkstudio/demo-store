@@ -1,0 +1,24 @@
+{
+  "name": "freshwork/laravel-metable",
+  "description": "Add metadata to your Eloquent Models",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Gonzalo De Spirito",
+      "email": "gonzalo@freshworkstudio.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Freshwork\\Metable\\": "src/"
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "0.1-dev"
+    }
+  },
+  "require": {
+
+  }
+}
