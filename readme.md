@@ -1,27 +1,61 @@
-# Laravel PHP Framework
+# Tienda de prueba Webpay One Click
+Librería para la integración de Webpay Plus, Webpay OneClick y Webpay Patpass. Esta librería es mantenida por Gonzalo De Spirito de [freshworkstudio.com](http://freshworkstudio.com) y [simplepay.cl](http://simplepay.cl).
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+![Freshwork Studio's Transbank SDK](https://cloud.githubusercontent.com/assets/1103494/16623124/b0082046-436a-11e6-870a-2e5f6dbd9ef8.jpg)
+<a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square" alt="Software License"></img></a>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+# Installation
+```bash
+git clone git@github.com:freshworkstudio/demo-store.git
+cd demo-store
+composer install --prefer-dist
+cp .env.example .env
+php artisan key:generate
+```
 
-## Official Documentation
+Luego debes configurar tu base de datos en el `.env` y después correr las migraciones
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+```bash
+php artisan migrate
+```
 
-## Contributing
+# Usage
+Luego de instalar, cargara una tienda con productos de prueba. 
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+#Flow
+- Entrar a la tienda
+- Agregar al carro
+- Ver el carro
+- Regístrarte como usuario o iniciar sesión. Es importante destacar que para webpay one click el usuario debe estar registrado ya que su tarjeta de crédito queda asociada a un nombre de usuario dentro de tu base de datos. No puede comprar anónimamente como con Webpay PLus. 
+- Al registrarte por primera vez, el usuario no tendrá una tarjeta de crédito asociada a su cuenta. Le ofrecemos agregarla para pagar. 
+- El usuario agrega su tarjeta
+- Las futuras compras del usuario, solo requiere hacer click sore el botón de pago y sin pasar por el flujo de tranbank, banco ni claves, la compra será aprobada. 
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+### Pedir al usuario que  agregue su tarjeta
 
-## License
+![image](https://user-images.githubusercontent.com/1103494/31772369-d9609532-b4b5-11e7-86c4-6e6a5407c37e.png)
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+### Agregando tarjeta
+```
+VISA: 4051885600446623
+Vencimimento: Cualquiera
+Codigo verificación: 123
+```
+![image](https://user-images.githubusercontent.com/1103494/31772563-7dfab168-b4b6-11e7-9d13-eea2f45ab914.png)
+
+```
+RUT: 11.111.111-1
+Clave: 123
+```
+![image](https://user-images.githubusercontent.com/1103494/31772606-9dd648bc-b4b6-11e7-848c-5a4a891eaf96.png)
+
+### Tarjeta agregada
+Ahora el usuario puede pagar con un solo click porque su tarjeta de crédito ya está grabada. 
+![image](https://user-images.githubusercontent.com/1103494/31772659-cb2d13ae-b4b6-11e7-86b2-ab00e3e3bde7.png)
+
+# Pagar con webpay one click
+Solo apretar el botón y pagar... 
+![gif](http://g.recordit.co/N9c5vMWduM.gif)
+
