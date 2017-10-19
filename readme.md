@@ -20,6 +20,12 @@ Luego debes configurar tu base de datos en el `.env` y después correr las migra
 php artisan migrate
 ```
 
+Si no tienes un servidor como Wamp, Xamp o Laravel Valet, puedes partir el proyecto con: 
+```bash
+php artisan serve
+```
+
+
 # Usage
 Luego de instalar, cargara una tienda con productos de prueba. 
 
